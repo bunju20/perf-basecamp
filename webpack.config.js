@@ -11,16 +11,13 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, '/dist'),
-    clean: true,
-    publicPath: '/perf-basecamp/'
+    clean: true
   },
   devServer: {
     hot: true,
     open: true,
     compress: true,
-    historyApiFallback: {
-      index: '/perf-basecamp/'
-    }
+    historyApiFallback: true
   },
   devtool: 'source-map',
   plugins: [
@@ -46,7 +43,7 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|webp)$/i,
         loader: 'file-loader',
         options: {
           name: 'static/[name].[ext]'
