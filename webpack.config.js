@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -15,6 +17,7 @@ module.exports = {
   devServer: {
     hot: true,
     open: true,
+    compress: true,
     historyApiFallback: {
       index: '/perf-basecamp/'
     }
@@ -51,7 +54,24 @@ module.exports = {
       }
     ]
   },
+
   optimization: {
-    minimize: false
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          compress: {
+            drop_console: true,
+            drop_debugger: true
+          },
+          mangle: true,
+          output: {
+            comments: false
+          }
+        },
+        extractComments: false
+      }),
+      new CssMinimizerPlugin()
+    ]
   }
 };
