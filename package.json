@@ -40,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@webpack-cli/generators": "^2.2.0",
     "babel-loader": "^8.2.2",
+    "babel-plugin-import": "^1.13.8",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
     "css-minimizer-webpack-plugin": "^7.0.2",
@@ -68,10 +69,22 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
+      {
+        "modules": false
+      },
       "@babel/preset-react"
     ],
     "plugins": [
-      "@babel/plugin-transform-runtime"
+      "@babel/plugin-transform-runtime",
+      [
+        "babel-plugin-import",
+        {
+          "libraryName": "react-icons",
+          "libraryDirectory": "",
+          "camel2DashComponentName": false
+        },
+        "react-icons"
+      ]
     ]
   }
 }

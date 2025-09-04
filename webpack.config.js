@@ -55,6 +55,8 @@ module.exports = {
     ]
   },
   optimization: {
+    usedExports: true,
+    sideEffects: false,
     minimize: true,
     minimizer: [
       new TerserPlugin({
