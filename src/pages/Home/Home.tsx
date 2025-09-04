@@ -2,12 +2,10 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
-const CLOUDFRONT_URL = process.env.REACT_APP_CLOUDFRONT_URL;
-
-const heroImageDesktop = `${CLOUDFRONT_URL}/hero-desktop.webp`;
-const heroImageTablet = `${CLOUDFRONT_URL}/hero-tablet.webp`;
-const heroImageMobile = `${CLOUDFRONT_URL}/hero-mobile.webp`;
-const heroImageFallback = `${CLOUDFRONT_URL}/hero.jpg`;
+import heroImageDesktop from '../../assets/images/hero-desktop.webp';
+import heroImageTablet from '../../assets/images/hero-tablet.webp';
+import heroImageMobile from '../../assets/images/hero-mobile.webp';
+import heroImageFallback from '../../assets/images/hero.jpg';
 
 import trendingGif from '../../assets/images/trending.gif';
 import findGif from '../../assets/images/find.gif';
