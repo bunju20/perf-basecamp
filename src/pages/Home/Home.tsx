@@ -25,12 +25,14 @@ const Home = () => {
   return (
     <>
       <section className={styles.heroSection}>
-        <picture>
-          <source media="(max-width: 768px)" srcSet={heroImageMobile} type="image/webp" />
-          <source media="(max-width: 1200px)" srcSet={heroImageTablet} type="image/webp" />
-          <source media="(min-width: 1201px)" srcSet={heroImageDesktop} type="image/webp" />
-          <img className={styles.heroImage} src={heroImageFallback} alt="hero image" />
-        </picture>
+        <div className={styles.heroImageContainer}>
+          <picture>
+            <source media="(max-width: 768px)" srcSet={heroImageMobile} type="image/webp" />
+            <source media="(max-width: 1200px)" srcSet={heroImageTablet} type="image/webp" />
+            <source media="(min-width: 1201px)" srcSet={heroImageDesktop} type="image/webp" />
+            <img className={styles.heroImage} src={heroImageFallback} alt="hero image" />
+          </picture>
+        </div>
 
         <div className={styles.projectTitle}>
           <h1 className={styles.title}>Memegle</h1>

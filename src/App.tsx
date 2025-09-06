@@ -11,14 +11,18 @@ import './App.css';
 const App = () => {
   return (
     <Router>
-      <NavBar />
-      <Suspense fallback={<div>페이지 로딩 중...</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-        </Routes>
-      </Suspense>
-      <Footer />
+      <div className="app-container">
+        <NavBar />
+        <main className="main-content">
+          <Suspense fallback={<div>페이지 로딩 중...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/search" element={<Search />} />
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 };
